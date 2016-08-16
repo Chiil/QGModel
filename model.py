@@ -241,13 +241,13 @@ class Model:
         if not os.path.isdir(name + '/data'):
             os.makedirs(name + '/data')
         # Save.
-        with open(name + '/data/{:015.0f}'.format(self.clock), 'w') as f:
+        with open(name + '/data/{:015.0f}'.format(self.clock), 'wb') as f:
             pickle.dump(self, f)
 
 
 def load(name, time):
     """Load model state."""
-    with open(name + '/data/{:015.0f}'.format(time), 'r') as f:
+    with open(name + '/data/{:015.0f}'.format(time), 'rb') as f:
         m = pickle.load(f)
     return m
 
